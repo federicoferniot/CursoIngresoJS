@@ -9,7 +9,11 @@ function Mostrar()
 	var respuesta='si';
 	while(respuesta=='si')
 	{
-		numero = parseInt(prompt("Ingrese un numero"))
+		numero = parseInt(prompt("Ingrese un numero"));
+		while(isNaN(numero))
+		{
+			numero = parseInt(prompt("Ingrese un número"));
+		}
 		if(numero>0)
 		{
 			positivo=positivo+numero;
