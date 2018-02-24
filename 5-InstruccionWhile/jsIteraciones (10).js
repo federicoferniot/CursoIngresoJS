@@ -40,16 +40,30 @@ function Mostrar()
 			cantidadCeros++;
 		}
 		//Cuento los números pares
-		if((numero%2)==0)
+		if((numero%2)==0 && numero!=0)
 		{
 			cantidadPares++;
 		}
 		respuesta=prompt("Para continuar, ingrese si");
 	
 	}
-
-	promedioPositivos=positivos/cantidadPositivos;
-	promedioNegativos=negativos/cantidadNegativos;
+	if(cantidadPositivos!=0)
+	{
+		promedioPositivos=positivos/cantidadPositivos;
+	}
+	else
+	{
+		promedioPositivos="No se ingresaron numeros positivos";
+	}
+	if(cantidadNegativos!=0)
+	{
+		promedioNegativos=negativos/cantidadNegativos;
+	}
+	else
+	{
+		promedioNegativos="No se ingresaron numeros negativos";
+	}
+	
 	diferencia=positivos-negativos;
 	//Muestro resultados
 	document.write("<br> Suma de negativos: "+negativos);
