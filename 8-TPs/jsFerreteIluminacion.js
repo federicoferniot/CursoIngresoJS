@@ -14,8 +14,10 @@ function CalcularPrecio ()
  	var precioPorLampara = 35;
  	var lamparasAComprar;
  	var marca;
- 	var descuento;
+ 	var descuento=0;
  	var impuesto;
+ 	var limiteSinImpuesto=120;
+ 	var porcentajeImpuesto=10;
 
  	lamparasAComprar = document.getElementById('Cantidad').value;
  	lamparasAComprar = parseInt(lamparasAComprar);
@@ -59,6 +61,10 @@ function CalcularPrecio ()
  				descuento = 5/100;
  			}
  			break;
+
+ 		case 2:
+ 		case 1:
+ 			break;
  		
  		default:
  			descuento = 50/100;
@@ -66,6 +72,13 @@ function CalcularPrecio ()
 
  	//Calculo el precio final
  	precioFinal = precioPorLampara*lamparasAComprar;
- 	precioFinal = (precioFinal*descuento)+precioFinal;
+ 	precioFinal = precioFinal-(precioFinal*descuento);
+ 	if(precioFinal>limiteSinImpuesto)
+ 	{
+ 		impuesto=precioFinal*porcentajeImpuesto/100;
+ 		precioFinal=precioFinal+impuesto;
+ 		alert("IIBB Usted pagó "+precioFinal+", siendo "+impuesto+" el impuesto que se pagó.")
+ 	}
 
+ 	document.getElementById('precioDescuento').value=precioFinal;
 }
